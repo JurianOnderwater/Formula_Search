@@ -1,0 +1,45 @@
+{
+    "physics": [
+        {
+            "name": "Energy mass equivalnece",
+            "equation": "E = M C^2",
+            "variables": [
+                "E",
+                "M",
+                "C^2"
+            ]
+        },
+        {
+            "name": "average speed",
+            "equation": "v = d / t",
+            "variables": [
+                "v",
+                "d",
+                "t"
+            ]
+        }
+    ],
+    "computer science": [],
+    "engineering": [
+        {
+            "name": "test",
+            "equation": "a + b = c",
+            "variables": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        {
+            "name": "test2",
+            "equation": "d + e = f",
+            "variables": [
+                "d",
+                "e",
+                "f"
+            ]
+        }
+    ],
+    "chemistry": [],
+    "biology": []
+}

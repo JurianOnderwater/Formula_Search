@@ -25,7 +25,7 @@ class FormulaSearch:
             inputs_variables (list[str]): list of variables in the formula
         """
 
-        file = open("formulas/formulas.json")
+        file = open("../formulas/formulas.json")
         data = json.load(file)
         match mode:
             case "name":

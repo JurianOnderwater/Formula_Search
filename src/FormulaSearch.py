@@ -2,6 +2,7 @@ import re
 import json
 from extract_variables import StringManipulations as sm
 import argparse
+from helptext import HelpText
 
 
 
@@ -72,11 +73,13 @@ If you want to look through multiple fields, please type them out with a space i
         print("Not implemented yet, sorry :(")
 
 def main():
+    helptext = HelpText()
     parser = argparse.ArgumentParser()
-    parser.add_argument('function', type=str, choices=['search', 'save'])
-    parser.add_argument('--mode', type=str, choices=['name', 'field', 'variables'])
-    parser.add_argument('--variables', nargs='*')
-    parser.add_argument('--field', nargs='*')
+    
+    parser.add_argument('function', type=str, choices=['search', 'save'], help=helptext.functionhelp)
+    parser.add_argument('--mode', type=str, choices=['name', 'field', 'variables'], help=helptext.modehelp)
+    parser.add_argument('--variables', nargs='*', help=helptext.variableshelp)
+    parser.add_argument('--field', nargs='*', help=helptext.fieldhelp)
 
     args = parser.parse_args()
     print(f"mode: {args.mode}")

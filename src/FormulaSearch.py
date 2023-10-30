@@ -71,8 +71,7 @@ If you want to look through multiple fields, please type them out with a space i
     def edit_function(self):
         print("Not implemented yet, sorry :(")
 
-
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('function', type=str, choices=['search', 'save'])
     parser.add_argument('--mode', type=str, choices=['name', 'field', 'variables'])
@@ -80,12 +79,16 @@ if __name__ == "__main__":
     parser.add_argument('--field', nargs='*')
 
     args = parser.parse_args()
-    print(args)
+    print(f"mode: {args.mode}")
     fs = FormulaSearch()
     if args.function == 'search':
-        fs.search('name', mode=args.mode, inputs_variables=args.variables )
+        fs.search(mode=args.mode, inputs_variables=args.variables )
     elif args.function == 'save':
         fs.save(args.field)
     else:
         print('Choose an existing function dickhead')
 
+
+
+if __name__ == "__main__":
+    main()

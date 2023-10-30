@@ -25,5 +25,5 @@ class StringManipulations():
             # convert back to json.
             json.dump(file_data, file, indent = 4)
 
-print(StringManipulations.tokenize("E = M C^2"))
-print(StringManipulations.remove_math(StringManipulations.tokenize("E = M C^2")))
+# print(StringManipulations.tokenize("E = M C^2"))
+# print(StringManipulations.remove_math(StringManipulations.tokenize("E = M C^2")))

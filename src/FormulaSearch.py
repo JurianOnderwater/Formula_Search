@@ -1,14 +1,21 @@
 import re
 import json
 from extract_variables import StringManipulations as sm
-from functools import partial
+import argparse
+
 
 
 class FormulaSearch:
     def __init__(self) -> None:
         pass
 
-    def search(self, mode: str, inputs_variables: list = [None]):
+    def search(self, mode: str, 
+               fields:list[str] = ['physics',
+                                    'computer science',
+                                    'engineering',
+                                    'chemistry',
+                                    'biology',], 
+                inputs_variables: list = [None]):
         """
         Match all formulas that exactly match the variables provided
 
@@ -21,8 +28,10 @@ class FormulaSearch:
         data = json.load(file)
         match mode:
             case "name":
-                for i in data:
-                    pass
+                for field in fields:
+                    for entry in data[str(field)]:
+                        if entry['name'] == inputs_variables[0]:
+                            print(f"{entry['name']}: {entry['equation']}")
             case "field":
                 fields = (
                     input(
@@ -63,10 +72,20 @@ If you want to look through multiple fields, please type them out with a space i
         print("Not implemented yet, sorry :(")
 
 
-def main():
-    fs = FormulaSearch()
-    fs.search(mode="field")
-
-
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('function', type=str, choices=['search', 'save'])
+    parser.add_argument('--mode', type=str, choices=['name', 'field', 'variables'])
+    parser.add_argument('--variables', nargs='*')
+    parser.add_argument('--field', nargs='*')
+
+    args = parser.parse_args()
+    print(args)
+    fs = FormulaSearch()
+    if args.function == 'search':
+        fs.search('name', mode=args.mode, inputs_variables=args.variables )
+    elif args.function == 'save':
+        fs.save(args.field)
+    else:
+        print('Choose an existing function dickhead')
+

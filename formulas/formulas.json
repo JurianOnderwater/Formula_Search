@@ -1,7 +1,7 @@
 {
     "physics": [
         {
-            "name": "Energy mass equivalnece",
+            "name": "energy mass equivalence",
             "equation": "E = M C^2",
             "variables": [
                 "E",
